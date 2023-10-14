@@ -7,6 +7,9 @@ from nltk.probability import FreqDist
 from nltk.corpus import stopwords
 from nltk.corpus import stopwords
 
+def word_tokenize2(text):
+    return len(text.split(' '))
+
 #To give the webpage a title
 st.title('Igbo Text Analyzer Prototyping App')
 Text = st.text_area('Type in a text')
@@ -19,6 +22,7 @@ num_of_sent = len(tokenize_sent)
 tokenized_word = word_tokenize(Text)
 word_freq = FreqDist(tokenized_word)
 num_of_words = word_freq.N()
+num_of_words2 = word_tokenize2(Text)
 
 # To get the number of unique words in the Text inputed
 unique_word = []
@@ -32,6 +36,7 @@ if st.button('submit', type="secondary"):
     st.write("Hello Word")
     st.write("There are", num_of_sent, "Sentences in the inputed Text")
     st.write("There are", num_of_words, "(Tokens) Words in the inputed Text")
+    t.write("There are", num_of_words2, "(Tokens) Words in the inputed Text USING JUST SPACEA")
     st.write("There are", num_of_Uwords, " Unique (Tokens) words in the Inputed text")
 
 
